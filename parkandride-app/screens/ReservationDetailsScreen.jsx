@@ -373,8 +373,8 @@ export default function ReservationDetailsScreen({ route, navigation }) {
                 },
               ]}
             >
-              {reservation.paymentStatus.charAt(0).toUpperCase() +
-                reservation.paymentStatus.slice(1)}
+              {(reservation.paymentStatus || "").charAt(0).toUpperCase() +
+                (reservation.paymentStatus || "").slice(1)}
             </Text>
           </View>
         </View>

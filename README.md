@@ -21,6 +21,41 @@ Users can search for metro stations, view nearby parking facilities, check real-
 - **User Profiles**: Store preferences and vehicle information
 - **Loyalty Program**: Earn and redeem points for parking
 
+### Ride Booking Features
+
+- **Multiple Ride Types**:
+
+  - On-Demand Rides: Instant booking for immediate travel
+  - Scheduled Rides: Advance booking for planned journeys
+  - Shared Rides: Cost-effective option with co-passengers
+  - Private Rides: Exclusive vehicle usage
+
+- **Vehicle Options**:
+
+  - E-Rickshaw: Eco-friendly option with 3-seat capacity
+  - Cab: Comfortable 4-seater vehicle
+  - Shuttle: Spacious 8-seater for group travel
+
+- **Smart Ride Matching**:
+
+  - 10-minute matching window for shared rides
+  - Intelligent seat availability tracking
+  - Vehicle type compatibility check
+  - Route optimization for shared journeys
+
+- **Dynamic Fare Calculation**:
+
+  - Distance-based pricing
+  - Capacity-adjusted rates
+  - Shared ride discounts
+  - Real-time fare estimates
+
+- **Location Services**:
+  - Geoapify integration for precise location
+  - Pickup/dropoff point autocomplete
+  - Real-time location tracking
+  - Route visualization
+
 ### For Administrators
 
 - **Metro Station Management**: Add, edit, and remove metro stations
@@ -28,6 +63,9 @@ Users can search for metro stations, view nearby parking facilities, check real-
 - **Slot Management**: Define zones and manage individual parking slots
 - **Time Restrictions**: Set maintenance periods and special restrictions
 - **Dashboard**: Monitor usage statistics and occupancy rates
+- **Driver Management**: Onboard and manage drivers
+- **Vehicle Fleet Management**: Track and maintain vehicle inventory
+- **Ride Analytics**: Monitor ride patterns and performance metrics
 
 ## Installation and Setup
 
@@ -146,6 +184,34 @@ Users can search for metro stations, view nearby parking facilities, check real-
 - `PUT /api/reservations/:id/payment`: Complete payment
 - `PUT /api/reservations/:id/update-time`: Update reservation time
 
+### Ride Management
+
+- `POST /api/rides`: Create a new ride booking
+- `GET /api/rides`: Get user's ride history
+- `GET /api/rides/:id`: Get specific ride details
+- `PUT /api/rides/:id/cancel`: Cancel a ride
+- `GET /api/rides/available`: Find available rides for sharing
+- `POST /api/rides/estimate`: Get fare estimate for a ride
+- `GET /api/rides/active`: Get user's active rides
+
+### Driver Management
+
+- `POST /api/admin/drivers`: Add a new driver
+- `GET /api/admin/drivers`: List all drivers
+- `GET /api/admin/drivers/:id`: Get driver details
+- `PUT /api/admin/drivers/:id`: Update driver information
+- `PUT /api/admin/drivers/:id/status`: Update driver status
+- `DELETE /api/admin/drivers/:id`: Remove a driver
+
+### Vehicle Management
+
+- `POST /api/admin/vehicles`: Add a new vehicle
+- `GET /api/admin/vehicles`: List all vehicles
+- `GET /api/admin/vehicles/:id`: Get vehicle details
+- `PUT /api/admin/vehicles/:id`: Update vehicle information
+- `PUT /api/admin/vehicles/:id/status`: Update vehicle status
+- `DELETE /api/admin/vehicles/:id`: Remove a vehicle
+
 ### User Profile
 
 - `GET /api/user/me`: Get user profile
@@ -167,14 +233,3 @@ Users can search for metro stations, view nearby parking facilities, check real-
 ## License
 
 This project is licensed under the MIT License.
-
-## Contributors
-
-- [Your Name](https://github.com/yourusername)
-
-## Acknowledgements
-
-- [React Native Community](https://reactnative.dev/)
-- [Expo Team](https://expo.dev/)
-- [MongoDB](https://www.mongodb.com/)
-- [Express.js](https://expressjs.com/)

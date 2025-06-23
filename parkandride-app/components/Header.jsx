@@ -10,11 +10,21 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 
-const Header = ({ title, showMenu = true, showBack = false, onMenuPress }) => {
+const Header = ({
+  title,
+  showMenu = true,
+  showBack = false,
+  onMenuPress,
+  onBackPress,
+}) => {
   const navigation = useNavigation();
 
   const handleBackPress = () => {
-    navigation.goBack();
+    if (onBackPress) {
+      onBackPress();
+    } else {
+      navigation.goBack();
+    }
   };
 
   const handleMenuPress = () => {
@@ -26,15 +36,19 @@ const Header = ({ title, showMenu = true, showBack = false, onMenuPress }) => {
     }
   };
 
+  // Convert showBack to boolean if it's passed as a string
+  const shouldShowBack = showBack === true || showBack === "true";
+  const shouldShowMenu = showMenu === true || showMenu === "true";
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
       <View style={styles.header}>
-        {showBack ? (
+        {shouldShowBack ? (
           <TouchableOpacity onPress={handleBackPress} style={styles.iconButton}>
             <Icon name="arrow-back" size={24} color="#000" />
           </TouchableOpacity>
-        ) : showMenu ? (
+        ) : shouldShowMenu ? (
           <TouchableOpacity onPress={handleMenuPress} style={styles.iconButton}>
             <Icon name="menu" size={24} color="#000" />
           </TouchableOpacity>

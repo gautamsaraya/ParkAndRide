@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  SafeAreaView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { logout, getUserData } from "../utils/auth";
@@ -67,14 +68,18 @@ export default function AdminDashboardScreen({ navigation }) {
   );
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header
         title={`Admin Dashboard: ${adminName}`}
         showMenu={false}
         showBack={false}
       />
 
-      <ScrollView style={styles.content}>
+      <ScrollView
+        style={styles.content}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.welcomeContainer}>
           <Text style={styles.welcomeText}>Welcome to the Admin Dashboard</Text>
           <Text style={styles.welcomeSubtext}>
@@ -112,12 +117,28 @@ export default function AdminDashboardScreen({ navigation }) {
           />
         </View>
 
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Ride Services</Text>
+          <AdminMenuCard
+            title="Manage Drivers"
+            icon="person-outline"
+            color="#e74a3b"
+            onPress={() => navigateTo("AdminDrivers")}
+          />
+          <AdminMenuCard
+            title="Manage Vehicles"
+            icon="car-sport-outline"
+            color="#36b9cc"
+            onPress={() => navigateTo("AdminVehicles")}
+          />
+        </View>
+
         <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
           <Ionicons name="log-out-outline" size={20} color="#fff" />
           <Text style={styles.logoutText}>Logout</Text>
         </TouchableOpacity>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -128,7 +149,10 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+  },
+  scrollContent: {
     padding: 16,
+    paddingBottom: 40,
   },
   welcomeContainer: {
     backgroundColor: "#fff",

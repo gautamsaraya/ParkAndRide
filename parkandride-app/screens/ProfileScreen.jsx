@@ -158,7 +158,7 @@ export default function ProfileScreen({ navigation }) {
         <View style={styles.profileHeader}>
           <View style={styles.avatarContainer}>
             <Text style={styles.avatarText}>
-              {user?.name?.charAt(0) || "U"}
+              {(user?.name || "U").charAt(0)}
             </Text>
           </View>
           <View style={styles.profileInfo}>

@@ -59,6 +59,16 @@ const DrawerContent = ({ navigation }) => {
       onPress: () => navigateTo("ReservationsList"),
     },
     {
+      icon: "compass-outline",
+      label: "Book a Ride",
+      onPress: () => navigateTo("RideBooking"),
+    },
+    {
+      icon: "time-outline",
+      label: "My Rides",
+      onPress: () => navigateTo("RideHistory"),
+    },
+    {
       icon: "person-outline",
       label: "Profile",
       onPress: () => navigateTo("Profile"),
@@ -72,7 +82,7 @@ const DrawerContent = ({ navigation }) => {
         <View style={styles.userInfo}>
           <View style={styles.avatarContainer}>
             <Text style={styles.avatarText}>
-              {user.name.charAt(0).toUpperCase()}
+              {(user?.name || "U").charAt(0).toUpperCase()}
             </Text>
           </View>
           <View style={styles.userDetails}>

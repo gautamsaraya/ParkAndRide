@@ -18,11 +18,18 @@ import ReservationDetailsScreen from "./screens/ReservationDetailsScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import DrawerContent from "./components/DrawerContent";
 
+// Ride booking screens
+import RideBookingScreen from "./screens/RideBookingScreen";
+import RideConfirmationScreen from "./screens/RideConfirmationScreen";
+import RideHistoryScreen from "./screens/RideHistoryScreen";
+
 // Admin screens
 import AdminDashboardScreen from "./screens/AdminDashboardScreen";
 import AdminMetroStationsScreen from "./screens/AdminMetroStationsScreen";
 import AdminParkingLotsScreen from "./screens/AdminParkingLotsScreen";
 import AdminParkingSlotsScreen from "./screens/AdminParkingSlotsScreen";
+import AdminDriversScreen from "./screens/AdminDriversScreen";
+import AdminVehiclesScreen from "./screens/AdminVehiclesScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -74,6 +81,14 @@ export default function App() {
           />
           <Stack.Screen name="Profile" component={ProfileScreen} />
 
+          {/* Ride Booking Screens */}
+          <Stack.Screen name="RideBooking" component={RideBookingScreen} />
+          <Stack.Screen
+            name="RideConfirmation"
+            component={RideConfirmationScreen}
+          />
+          <Stack.Screen name="RideHistory" component={RideHistoryScreen} />
+
           {/* Admin Screens */}
           <Stack.Screen
             name="AdminDashboard"
@@ -91,6 +106,8 @@ export default function App() {
             name="AdminParkingSlots"
             component={AdminParkingSlotsScreen}
           />
+          <Stack.Screen name="AdminDrivers" component={AdminDriversScreen} />
+          <Stack.Screen name="AdminVehicles" component={AdminVehiclesScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
