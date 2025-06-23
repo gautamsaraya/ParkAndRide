@@ -96,15 +96,7 @@ Users can search for metro stations, view nearby parking facilities, check real-
    npm install
    ```
 
-4. Create a `.env` file with the following variables:
-
-   ```
-   PORT=5000
-   MONGO_URI=mongodb://localhost:27017/parkandride
-   JWT_SECRET=your_jwt_secret_key
-   ```
-
-5. Start the server:
+4. Start the server:
    ```
    npm run dev
    ```
